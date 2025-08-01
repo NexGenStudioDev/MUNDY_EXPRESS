@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "one";
+    src: url(../fonts/1.woff2);
+}
+@font-face {
+    font-family: "second";
+    src: url(../fonts/3.woff2);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #F9F5ED;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #59432D;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7a5a3a;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9F5ED;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #59432D #F9F5ED;
+  scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: #59432D;
+    color: #F9F5ED;
+}
