@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../components/Loader';
+import axios from 'axios';
 
 const Product = () => {
   const { productId } = useParams();
@@ -39,10 +40,12 @@ const Product = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`/api/v1/product/${productId}`);
-        if (!response.ok) throw new Error('Failed to fetch product details.');
-        const data = await response.json();
-        setProduct(data?.data);
+        const response = await axios.get(`/api/v1/product/${productId}`);
+       
+        console.log(response.data);
+        const data =  response.data.data;
+        console.log(data);
+        setProduct(data);
       } catch (error) {
         toast.error(error.message || 'Failed to load product details.');
       }
